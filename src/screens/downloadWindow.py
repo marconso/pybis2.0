@@ -14,6 +14,7 @@ class WidgetDownload(QWidget):
 
     def drawLayout(self):
         group_options_download = QGroupBox('Download options')
+        group_buttons = QGroupBox('Magick')
         group_options_pyspark = QGroupBox('Pyspark options')
         group_table = QGroupBox('Table preview')
 
@@ -24,12 +25,16 @@ class WidgetDownload(QWidget):
 
         group_options_download.setLayout(layout_config_api)
         group_options_pyspark.setLayout(layout_selector)
+        group_buttons.setLayout(layout_buttons)
         group_table.setLayout(layout_table)
 
         main_layout = QGridLayout(self)
 
         self.cbbxServer = QComboBox()
+
         self.cbbxData = QComboBox()
+        self.cbbxSubData = QComboBox()
+
         self.cbbxLocal = QComboBox()
         self.cbbxLocal_ = QComboBox()
 
@@ -40,27 +45,32 @@ class WidgetDownload(QWidget):
         self.dtMax.setDateRange(QDate(2020, 1, 1), QDate.currentDate())
         self.dtMax.setDisplayFormat('yyyy-MM-dd')
 
-        layout_config_api.addWidget(QLabel('Select server'), 0, 0)
-        layout_config_api.addWidget(self.cbbxServer, 1, 0)
-        layout_config_api.addWidget(QLabel('Choose your data'), 2, 0)
+        layout_config_api.addWidget(QLabel('Select server'), 0, 0, 1, 2)
+        layout_config_api.addWidget(self.cbbxServer, 1, 0, 1, 2)
+
+        layout_config_api.addWidget(QLabel('Data'), 2, 0)
         layout_config_api.addWidget(self.cbbxData, 3, 0)
 
-        layout_config_api.addWidget(QLabel('Select your region'), 0, 1)
-        layout_config_api.addWidget(self.cbbxLocal, 1, 1)
-        layout_config_api.addWidget(QLabel('Select your sub-region'), 2, 1)
-        layout_config_api.addWidget(self.cbbxLocal_, 3, 1)
+        layout_config_api.addWidget(QLabel('Sub-Data'), 4, 0)
+        layout_config_api.addWidget(self.cbbxSubData, 5, 0)
 
-        layout_config_api.addWidget(QLabel('Set interval time'), 4, 0)
-        layout_config_api.addWidget(self.dtMin, 5, 0)
-        layout_config_api.addWidget(self.dtMax, 5, 1)
+        layout_config_api.addWidget(QLabel('Select your region'), 2, 1)
+        layout_config_api.addWidget(self.cbbxLocal, 3, 1)
+
+        layout_config_api.addWidget(QLabel('Select your sub-region'), 4, 1)
+        layout_config_api.addWidget(self.cbbxLocal_, 5, 1)
+
+        layout_config_api.addWidget(QLabel('Set interval time'), 6, 0)
+        layout_config_api.addWidget(self.dtMin, 7, 0)
+        layout_config_api.addWidget(self.dtMax, 7, 1)
 
         self.btnDownload = QPushButton('Download')
         self.btnView = QPushButton('Preview')
         self.btnStop = QPushButton('Stop')
 
-        layout_buttons.addWidget(self.btnDownload, 0, 0)
-        layout_buttons.addWidget(self.btnView, 0, 1)
-        layout_buttons.addWidget(self.btnStop, 0, 2)
+        layout_buttons.addWidget(self.btnDownload, 1, 0)
+        layout_buttons.addWidget(self.btnView, 2, 0)
+        layout_buttons.addWidget(self.btnStop, 3, 0)
 
         self.spinCores = QSpinBox()
         self.spinMemory = QSpinBox()
@@ -78,8 +88,7 @@ class WidgetDownload(QWidget):
         layout_table.addWidget(self.table, 0, 0)
 
         main_layout.addWidget(group_options_download, 0, 0)
-        main_layout.addWidget(group_options_pyspark, 0, 1)
 
-        main_layout.addLayout(layout_buttons, 1, 0, 1, 2)
+        main_layout.addWidget(group_buttons, 0, 1)#, 1, 2)
 
         main_layout.addWidget(group_table, 2, 0, 1, 2)
