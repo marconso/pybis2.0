@@ -1,4 +1,6 @@
+import os
 import tempfile
+import json
 from PyQt5.QtWidgets import (
     QWidget, QPushButton, QComboBox, QGridLayout, QDateTimeEdit, QLabel,
     QTableWidget, QSpinBox, QFormLayout, QGroupBox
@@ -7,10 +9,24 @@ from PyQt5.QtCore import QDate
 
 
 class WidgetDownload(QWidget):
+
+    confjson = os.path.join(os.path.dirname(__file__), '../config/conf.json')
+
     def __init__(self):
         super().__init__()
 
         self.drawLayout()
+        data = self.loadConfig(self.confjson)
+        self.cbbxServer.addItems(list(data['SERVER'].keys()))
+        self.cbbxData.addItems(data['SERVER'][self.cbbxServer.currentText()])
+
+    def update_items(self):
+        ...
+
+    def loadConfig(self, filejson):
+        with open(filejson, 'r') as fjson:
+            data = json.load(fjson)
+            return data
 
     def drawLayout(self):
         group_options_download = QGroupBox('Download options')
