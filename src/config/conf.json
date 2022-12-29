@@ -1,0 +1,12 @@
+{
+    "SERVER": {
+        "CNES": [
+            "DC", "EE", "EF", "EP", "EQ", "GM", "HB",
+            "IN", "LT", "PF", "RC", "SR", "ST"
+        ],
+        "SIM": ["DOFET", "DORES"],
+        "SINAN": ["Dengue", "Chikungunha"],
+        "SINASC": ["Dengue", "Chikungunha"],
+        "SIHSUS": []
+    }
+}
