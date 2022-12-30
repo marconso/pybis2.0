@@ -1,12 +1,40 @@
 {
     "SERVER": {
-        "CNES": [
-            "DC", "EE", "EF", "EP", "EQ", "GM", "HB",
-            "IN", "LT", "PF", "RC", "SR", "ST"
-        ],
-        "SIM": ["DOFET", "DORES"],
-        "SINAN": ["Dengue", "Chikungunha"],
-        "SINASC": ["Dengue", "Chikungunha"],
-        "SIHSUS": []
+        "FTP.DATASUS.GOV.BR": {
+            "CNES": {
+                "ESTABELECIMENTOS": "ST",
+                "DADOS COMPLEMENTARES": "DC",
+                "PROFISSIONAIS": "PF",
+                "LEITOS": "LT",
+                "EQUIPAMENTOS": "EQ",
+                "SERVIÇOS ESPECIALIZADO": "SR",
+                "EQUIPES": "EP",
+                "HABILITAÇÕES": "HB",
+                "GESTÃO E METAS": "GM",
+                "ESTABELECIMENTO DE ENSINO": "EE",
+                "ESTABELECIMENTO FILANTRÓPICO": "EF",
+                "INCENTIVOS": "IN"
+            },
+
+            "SIH": {"INTERNAÇÕES HOSPITALARES": "RD"},
+
+            "SIM": {"ÓBITO": "DO", "ÓBITO FETAL": "DOFET"},
+
+            "SINAN": {"ANIMAIS PEÇONHENTOS": "ANIM", "BOTULISMO": "BOTU",
+                "CHAGAS": "CHAG", "CÓLERA": "COLE",
+                "COQUELUCHE": "COQU", "DIFTERIA": "DIFT",
+                "ESQUISTOSSOMOSE": "ESQU", "FEBRE MACULOSA": "FMAC",
+                "FEBRE TIFÓIDE": "FTIF", "HANSENÍASE": "HANS",
+                "LEPTOSPIROSE": "LEPT", "MENINGITE": "MENI",
+                "RAIVA": "RAIV", "TÉTANO": "TETA",
+                "TUBERCULOSE": "TUBE", "ZIKA-V": "ZIKA",
+                "DENGUE": "DENG", "CHICKUNGUNYA": "CHIK"},
+
+            "SINASC": {"NASCIDOS VIVOS": "DN"}
+        },
+        "OPENDATASUS.SAUDE.GOV.BR": {
+            "VACINACAO COVID19": [],
+            "SINDROME GRIPAL": []
+        }
     }
 }
