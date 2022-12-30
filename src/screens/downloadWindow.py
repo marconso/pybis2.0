@@ -17,7 +17,10 @@ class WidgetDownload(QWidget):
 
         self.drawLayout()
         self.data = self.loadConfig(self.confjson)
-        self.cbbxServer.addItems(sorted(list(self.data['SERVER'].keys())))
+        self.load_combobox()
+
+    def load_combobox(self):
+        self.cbbxServer.addItems(sorted(self.data['SERVER']))
         self.cbbxData.addItems(
             sorted(self.data['SERVER'][self.cbbxServer.currentText()])
         )
@@ -27,8 +30,23 @@ class WidgetDownload(QWidget):
             [self.cbbxData.currentText()])
         )
 
+        self.cbbxLocal.addItems(sorted(self.data['DELIMITATION']))
+
         self.cbbxServer.currentTextChanged.connect(self.update_items_data)
         self.cbbxData.currentTextChanged.connect(self.update_items_sub_data)
+        self.cbbxLocal.currentTextChanged.connect(
+            self.update_items_delimitation
+        )
+
+    def update_items_delimitation(self, text):
+        self.cbbxLocal_.clear()
+        if text != "BRASIL":
+            self.cbbxLocal_.show()
+            self.select_sub_reg.show()
+        else:
+            self.select_sub_reg.hide()
+            self.cbbxLocal_.hide()
+        self.cbbxLocal_.addItems(sorted(self.data['DELIMITATION'][text]))
 
     def update_items_data(self, server):
         self.cbbxData.clear()
@@ -82,6 +100,7 @@ class WidgetDownload(QWidget):
 
         self.cbbxLocal = QComboBox(editable=True)
         self.cbbxLocal_ = QComboBox(editable=True)
+        self.cbbxLocal_.hide()
 
         self.dtMin = QDateTimeEdit(QDate(2010, 1, 1))
         self.dtMin.setDateRange(QDate(2010, 1, 1), QDate.currentDate())
@@ -93,19 +112,22 @@ class WidgetDownload(QWidget):
         layout_config_api.addWidget(QLabel('Select server'), 0, 0, 1, 2)
         layout_config_api.addWidget(self.cbbxServer, 1, 0, 1, 2)
 
-        layout_config_api.addWidget(QLabel('Data'), 2, 0)
+        layout_config_api.addWidget(QLabel('System of information'), 2, 0)
         layout_config_api.addWidget(self.cbbxData, 3, 0)
 
-        layout_config_api.addWidget(QLabel('Sub-Data'), 4, 0)
+        layout_config_api.addWidget(QLabel('Dataset'), 4, 0)
         layout_config_api.addWidget(self.cbbxSubData, 5, 0)
 
-        layout_config_api.addWidget(QLabel('Select your region'), 2, 1)
+        layout_config_api.addWidget(QLabel('Delimitation'), 2, 1)
         layout_config_api.addWidget(self.cbbxLocal, 3, 1)
 
-        layout_config_api.addWidget(QLabel('Select your sub-region'), 4, 1)
+        self.select_sub_reg = QLabel('Select your sub-region')
+        self.select_sub_reg.hide()
+
+        layout_config_api.addWidget(self.select_sub_reg, 4, 1)
         layout_config_api.addWidget(self.cbbxLocal_, 5, 1)
 
-        layout_config_api.addWidget(QLabel('Set interval time'), 6, 0)
+        layout_config_api.addWidget(QLabel('Period'), 6, 0)
         layout_config_api.addWidget(self.dtMin, 7, 0)
         layout_config_api.addWidget(self.dtMax, 7, 1)
 

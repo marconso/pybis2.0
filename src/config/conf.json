@@ -36,5 +36,39 @@
             "VACINACAO COVID19": [],
             "SINDROME GRIPAL": []
         }
+    },
+    "DELIMITATION": {
+        "BRASIL": ["BRASIL"],
+        "NORTE": {
+            "AMAZONAS": "AM", "RORAIMA": "RR", "AMAPÁ": "AP", "PARÁ": "PA",
+            "TOCANTINS": "TO", "RONDÔNIA": "RO", "ACRE": "AC"
+        },
+        "NORDESTE": {
+            "MARANHÃO": "MA",
+            "PIAUÍ": "PI",
+            "CEARÁ": "CE",
+            "RIO GRANDE DO NORTE": "RN",
+            "PERNAMBUCO": "PE",
+            "PARAÍBA": "PB",
+            "SERGIPE": "SE",
+            "ALAGOAS": "AL",
+            "BAHIA": "BA"
+        },
+        "CENTRO-OESTE": {
+            "MATO GROSSO": "MT",
+            "MATO GROSSO DO SUL": "MS",
+            "GOIÁS": "GO"
+        },
+        "SUDESTE": {
+            "SÃO PAULO": "SP",
+            "RIO DE JANEIRO": "RJ",
+            "ESPÍRITO SANTO": "ES",
+            "MINAS GERAIS": "MG"
+        },
+        "SUL": {
+            "PARANÁ": "PR",
+            "RIO GRANDE DO SUL": "RS",
+            "SANTA CATARINA": "SC"
+        }
     }
 }
