@@ -112,16 +112,16 @@ class WidgetDownload(QWidget):
         layout_config_api.addWidget(QLabel('Select server'), 0, 0, 1, 2)
         layout_config_api.addWidget(self.cbbxServer, 1, 0, 1, 2)
 
-        layout_config_api.addWidget(QLabel('System of information'), 2, 0)
+        layout_config_api.addWidget(QLabel('Dataset'), 2, 0)
         layout_config_api.addWidget(self.cbbxData, 3, 0)
 
-        layout_config_api.addWidget(QLabel('Dataset'), 4, 0)
+        layout_config_api.addWidget(QLabel('Table'), 4, 0)
         layout_config_api.addWidget(self.cbbxSubData, 5, 0)
 
         layout_config_api.addWidget(QLabel('Delimitation'), 2, 1)
         layout_config_api.addWidget(self.cbbxLocal, 3, 1)
 
-        self.select_sub_reg = QLabel('Select your sub-region')
+        self.select_sub_reg = QLabel('Select your region')
         self.select_sub_reg.hide()
 
         layout_config_api.addWidget(self.select_sub_reg, 4, 1)
