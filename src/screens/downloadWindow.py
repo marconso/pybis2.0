@@ -1,11 +1,11 @@
 import os
 import tempfile
 import json
-from PyQt5.QtWidgets import (
+from PySide6.QtWidgets import (
     QWidget, QPushButton, QComboBox, QGridLayout, QDateTimeEdit, QLabel,
     QTableWidget, QSpinBox, QFormLayout, QGroupBox
 )
-from PyQt5.QtCore import QDate
+from PySide6.QtCore import QDate
 
 
 class WidgetDownload(QWidget):

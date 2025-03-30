@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QPushButton
+from PySide6.QtWidgets import QWidget, QPushButton
 
 
 class WidgetEtl(QWidget):
